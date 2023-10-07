@@ -1,5 +1,7 @@
 "use strict"
 
+// Ornegin bloglarina yeni bir ver eklemek istiyorsun(Biz blogCategory_id ekledik) ancak bu ozellik eski kayitlarda yok, bu sebeple yazilan bu fonksiyonla eski kayitlarimizi guncelleyebildik
+
 const { BlogCategory, BlogPost } = require('./models/blogModel')
 
 module.exports = async () => {

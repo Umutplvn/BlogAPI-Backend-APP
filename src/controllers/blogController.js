@@ -147,7 +147,7 @@ module.exports.BlogPost = {
 
         // req.params.postId
         // const data = await BlogPost.findById(req.params.postId)
-        const data = await BlogPost.findOne({ _id: req.params.postId }).populate('blogCategoryId') // get Primary Data
+        const data = await BlogPost.findOne({ _id: req.params.postId }).populate('blogCategoryId') // get Primary Data - Alt tablodaykey ust tabloya ait veriyi istedik/ Category altindaki bloglarin icindeyiz ve categorye ait veriyi istiyoruz-blogCategoryId Model icinde post tarafinda tanimli ve oradaki ref parametreside bir ust kategoriyi refere ediyor/ Yani bloglari cekiyoruz ve bu populate sayesinde blogun bir ust kategorisine ait verileride cekiyoruz. Blog kategori verisi altinda da blog verisi 
 
         res.status(200).send({
             error: false,
