@@ -38,17 +38,12 @@ const nameSchema = new mongoose.Schema({
 // ------------------------------------------
 
 const blogCategorySchema = new mongoose.Schema({
-
     name: {
         type: String,
         trim: true,
-        required: true
+        required:true
     }
-
-}, {
-    collection: 'blogCategories',
-    timestamps: true
-})
+},{collection: 'blogCategories', timestamps:true})
 
 // ------------------------------------------
 // BlogPost
