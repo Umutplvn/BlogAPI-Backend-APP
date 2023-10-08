@@ -20,12 +20,13 @@ module.exports.BlogCategory = {
 
     list: async (req, res) => {
 
-        const data = await BlogCategory.find()
-
+        // const data = await BlogCategory.find()
+        const data = await req.getModelList(BlogCategory)
         res.status(200).send({
             error: false,
             count: data.length,
-            result: data
+            details: await req.getModelListDetails(BlogPost),
+            result: data,
         })
     },
 
@@ -56,6 +57,7 @@ module.exports.BlogCategory = {
     update: async (req, res) => {
         
         // const data = await BlogCategory.findByIdAndUpdate(req.params.categoryId, req.body, { new: true }) // return new-data
+       
         const data = await BlogCategory.updateOne({ _id: req.params.categoryId }, req.body)
 
         res.status(202).send({
@@ -84,8 +86,10 @@ module.exports.BlogPost = {
 
     list: async (req, res) => {
 
-        const data = await BlogPost.find().populate('blogCategoryId') // get Primary Data
-
+      
+        //* RUN
+        // const data = await BlogPost.find(search).sort(sort).skip(skip).limit(limit).populate('blogCategoryId') // get Primary Data
+        const data=await req.getModelList(BlogPost, 'blogCategoryId')
         res.status(200).send({
             error: false,
             count: data.length,
