@@ -15,7 +15,7 @@ const UserSchema = new mongoose.Schema({
         required: [true, 'Email field must be required.'],
         validate: [
             (email) => (email.includes('@') && email.includes('.')), // ValidationCheck
-            'Error type is incorrect.' // If false Message.
+            'Email type is incorrect.' // If false Message.
         ]
     },
 
