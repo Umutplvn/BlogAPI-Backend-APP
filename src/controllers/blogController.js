@@ -21,11 +21,11 @@ module.exports.BlogCategory = {
     list: async (req, res) => {
 
         // const data = await BlogCategory.find()
-        const data = await req.getModelList(BlogCategory)
+        const data = await req.getModelList(BlogCategory)   //findSearchSortPage.js icinde middleware icinde yazdigimiz fonksiyon
         res.status(200).send({
             error: false,
             count: data.length,
-            details: await req.getModelListDetails(BlogPost),
+            details: await req.getModelListDetails(BlogPost),    //findSearchSortPage.js icinde middleware icinde yazdigimiz fonksiyon
             result: data,
         })
     },
